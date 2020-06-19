@@ -10,6 +10,7 @@
     "types",
     "src"
   ],
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "yarn build:type && vue-cli-service build",
@@ -52,5 +53,5 @@
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
   },
-  "gitHead": "b68f8fabc92d02e3bf91e704b9e8ba11c5a39d87"
+  "gitHead": "4315f8c754959b79b3723b66c4e572fc3052559c"
 }
