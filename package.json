@@ -4,6 +4,11 @@
   "workspaces": [
     "packages/*"
   ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaobaoonline/xbui"
+  },
   "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "scripts": {
     "test": "echo Test1"
