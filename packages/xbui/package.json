@@ -1,6 +1,6 @@
 {
   "name": "@xb/xbui",
-  "version": "0.0.76",
+  "version": "0.0.77",
   "main": "./dist/index.js",
   "typings": "./types/index.d.ts",
   "description": "xbui base on ant-design-vue",
