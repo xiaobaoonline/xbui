@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"esModuleInterop": true,
+		"strict": true,
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"noUnusedLocals": true,
+		"sourceMap": true,
+		"baseUrl": ".",
+		"paths": {},
+		"strictFunctionTypes": false,
+		"jsx": "react",
+		"types": ["jest", "node"]
+	},
+	"include": ["packages/**/*.ts", "tests/**/*.ts"],
+	"exclude": ["node_modules"]
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ant-design-vue@1.4.11/dist/antd.css" />
+    <link rel="stylesheet" href="./../dist/style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ant-design-vue@1.4.11/dist/antd.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="./../dist/index.js"></script>
+    <script>
+      Vue.use(xbui);
+      new Vue({
+        components: {
+          // xbfilter: xbui.Filter,
+        },
+        data: {
+          msg: 'test123',
+          filterdata: [
+            {
+              label: '事件',
+              key: 'Dateee',
+              type: 'select',
+              filter: false,
+              remote: false,
+              priority: 1,
+              remoteUrl: '',
+              mutiple: true,
+              father: '',
+              baselist: [{ label: '空', value: 0 }],
+              son: ['Dateee2', 'Dateee22'],
+              list: [
+                { label: '按期', value: 1, son: 'Dateee2' },
+                { label: '按课时', value: 2, son: 'Dateee22' },
+              ],
+            },
+            {
+              label: '儿子',
+              key: 'Dateee2',
+              type: 'select',
+              filter: false,
+              remote: false,
+              priority: 1,
+              remoteUrl: '',
+              mutiple: true,
+              father: 'Dateee',
+              son: 'Dateee3',
+              list: [
+                { label: 'SSBDSDSD', value: 0 },
+                { label: '１３１３１３１３', value: 1 },
+              ],
+            },
+            {
+              label: '孙子',
+              key: 'Dateee3',
+              type: 'select',
+              filter: false,
+              remote: false,
+              priority: 1,
+              remoteUrl: '',
+              mutiple: true,
+              father: 'Dateee2',
+              son: '',
+              list: [
+                { label: '孙子', value: 0 },
+                { label: '孙子啊', value: 1 },
+              ],
+            },
+            {
+              label: '二儿子',
+              key: 'Dateee22',
+              type: 'select',
+              filter: false,
+              remote: false,
+              priority: 1,
+              remoteUrl: '',
+              mutiple: true,
+              father: 'Dateee',
+              son: '',
+              list: [
+                { label: '二儿子a ', value: 0 },
+                { label: '二儿子s s', value: 1 },
+              ],
+            },
+            {
+              label: '年龄',
+              key: 'age',
+              type: 'selectrange',
+              filter: false,
+              remote: false,
+              priority: 1,
+              remoteUrl: '',
+              mutiple: true,
+              father: '',
+              son: '',
+              list: [
+                {
+                  label: '36个月',
+                  value: 1,
+                },
+                {
+                  label: '2岁',
+                  value: 2,
+                },
+                {
+                  label: '3岁',
+                  value: 3,
+                },
+                {
+                  label: '4岁',
+                  value: 4,
+                },
+                {
+                  label: '50岁',
+                  value: 5,
+                },
+              ],
+            },
+          ],
+        },
+        methods: {
+          changeFilter(data) {
+            // tslint:disable-next-line:no-console
+            console.log(data);
+          },
+        },
+        // template: `<div>{{msg}}</div>`,
+        template: `<div>
+            <xbfilter :filterdata="filterdata" @on-filter-change="changeFilter"></xbfilter>
+            </div>`,
+      }).$mount('#app');
+    </script>
+  </body>
+</html>

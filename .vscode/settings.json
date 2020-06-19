@@ -1,0 +1,33 @@
+{
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    // "**/node_modules": true,
+    ".nyc_output/": true,
+    "coverage/": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    // "**/node_modules/**": true,
+    "lib/**": true
+  },
+  "files.encoding": "utf8",
+  "search.exclude": {
+    "lib": true
+  },
+  "javascript.format.enable": false,
+  "tslint.ignoreDefinitionFiles": false,
+  "git.autoRepositoryDetection": false,
+  "files.associations": {
+    ".env.*": "ini",
+    ".env": "ini",
+    ".*rc": "json",
+    ".npmrc": "text"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "deepscan.enable": true
+}

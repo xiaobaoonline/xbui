@@ -1,0 +1,201 @@
+@import './../../../style/index.less';
+
+.xbf-clear {
+  clear: both;
+}
+
+.xbf-mainbox {
+  width: 100%;
+  font-size: 14px;
+  padding: 0;
+}
+.xbf-selectedbox {
+  margin-right: 100px;
+  text-align: left;
+}
+.xbf-selecteditem {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 8px;
+}
+.xbf-fr {
+  float: right;
+}
+.xbf-flex {
+  display: flex;
+}
+
+.xbf-lh30 {
+  line-height: 30px;
+}
+
+.xbf-linttext {
+  color: @primary-color;
+  cursor: pointer;
+  display: inline-block;
+  width: 80px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.xbf-disabletext {
+  color: @disabled-color;
+}
+
+.xbf-filtercomp-box {
+  margin-right: 120px;
+  margin-bottom: 5px;
+  line-height: 26px;
+  text-align: left;
+}
+
+/** 弹出层确认按钮样式 */
+.xbf-confirmbtn {
+  width: 50px;
+  margin-left: 10px;
+  margin-top: 4px;
+}
+
+/** 链接icon样式 */
+.xbf-splitdash {
+  color: @border-color-split;
+}
+.xbf-lintdash {
+  margin-left: 5px;
+}
+.xbf-filterdropitem {
+  display: inline-block;
+}
+.xbf-filtercomp-box .xbf-filterdropitem:last-child {
+  .xbf-splitdash {
+    display: none;
+  }
+}
+
+/** 筛选项样式 */
+.xbf-filtertitle.disabled,
+.xbf-filtertitle.disabled:hover {
+  color: @disabled-color;
+  cursor: not-allowed;
+}
+.xbf-filtertitle {
+  cursor: pointer;
+  margin-right: 10px;
+  display: inline-block;
+  position: relative;
+  padding: 4px 0px;
+  font-size: 14px;
+  color: #30404f;
+  word-break: keep-all;
+}
+
+.xbf-filtertitle:hover {
+  color: @primary-color;
+}
+
+.xbf-rangepopbox {
+  display: flex;
+  padding: 10px;
+  height: 50px;
+}
+.xbf-numberinput {
+  width: 60px;
+  display: inline-block;
+}
+.xbf-numpadDash {
+  margin: 3px;
+  width: 10px;
+  text-align: center;
+  display: inline-block;
+}
+
+.xbf-poper {
+  background: #fff;
+  box-shadow: 0 10px 20px 0 rgba(6, 46, 95, 0.3);
+  border-radius: 10px;
+  min-height: 30px;
+  padding: 10px;
+  width: auto;
+  max-height: 200px;
+  // overflow-y: scroll;
+}
+.xbf-poper-wraper {
+  position: absolute;
+  margin-left: 0;
+  z-index: 15;
+}
+.xbf-hoverpoper-wraper {
+  position: relative;
+  display: inline-block;
+}
+
+.xbf-filterdrop {
+  .xbf-poper {
+    padding: 0 !important;
+    border-radius: 4px !important;
+    max-height: unset !important;
+  }
+  .ant-select-multiple .ant-select-item-selected:after {
+    position: absolute;
+    right: -10px;
+  }
+}
+
+.xbf-searchbox {
+  height: 33px;
+  padding: 5px;
+  // padding-right: 0;
+  border-bottom: 1px solid @border-color-split;
+  input {
+    height: 23px;
+    padding-right: 20px;
+  }
+}
+
+.xbf-filterscrollbox {
+  max-height: 200px;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.xbf-filteritem.xbf-item-selected {
+  color: @primary-color;
+}
+.xbf-filteritem.xbf-item-selected::after {
+  content: '';
+}
+.xbf-filteritem.xbf-item-selected-multiple {
+  color: @primary-color;
+}
+
+.xbf-filteritem {
+  margin: 10px;
+  padding-right: 10px;
+  color: @text-color;
+  white-space: nowrap;
+  position: relative;
+  cursor: pointer;
+}
+
+.xbf-filteritem:hover {
+  background: fade(@primary-color, 10%);
+}
+
+.xbf-nodataitem {
+  color: tint(@text-color, 50%);
+  text-align: center;
+  word-break: keep-all;
+  height: 38px;
+  line-height: 38px;
+}
+.xbf-itembox {
+  max-height: 400px;
+  min-width: 100px;
+}
+.xbf-chart-clearbox {
+  width: 300px;
+  height: 30px;
+  line-height: 30px;
+  text-align: right;
+}

@@ -1,0 +1,44 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true,
+    "jest": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "parser": ["babel-eslint","@typescript-eslint/parser"],
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    }
+  },
+  "extends": ["plugin:vue/strongly-recommended", "prettier"],
+  "rules": {
+    "no-var": "error",
+    "camelcase": "off",
+    "no-extra-boolean-cast": "off",
+    "semi": ["error", "always"],
+    "vue/require-prop-types": "off",
+    "vue/require-default-prop": "off",
+    "vue/no-reserved-keys": "off",
+    "vue/multiline-html-element-content-newline": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/max-attributes-per-line": [2, {
+      "singleline": 10,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": false
+      }
+    }]
+  },
+   "overrides": [
+    {
+      "files": ["**/__tests__/*.{j,t}s?(x)"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+
+}

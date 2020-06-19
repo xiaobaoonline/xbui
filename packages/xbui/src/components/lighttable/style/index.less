@@ -1,0 +1,183 @@
+@import './../../../style/index.less';
+
+@light-table-prefix: ~'@{css-prefix-xbui}light-table';
+.@{light-table-prefix} {
+  width: inherit;
+  height: 100%;
+  max-width: 100%;
+  color: @text-color;
+  font-size: @font-size-base;
+  background-color: @table-td-bg;
+  box-sizing: border-box;
+  position: relative;
+  .@{light-table-prefix}-header-wrap {
+    border-bottom: 1px solid @border-color-split;
+    background: rgba(82, 149, 231, 0.05);
+  }
+  .@{light-table-prefix}-body-wrap {
+    position: relative;
+  }
+  .hidden {
+    visibility: hidden;
+  }
+  &-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  th,
+  td {
+    min-width: 0;
+    height: 40px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    position: static;
+    text-align: left;
+  }
+  th {
+    white-space: nowrap;
+    font-weight: normal;
+  }
+  td {
+    border-bottom: 1px solid @border-color-split;
+    background-color: @table-td-bg;
+    text-overflow: ellipsis;
+    color: @table-font-color;
+  }
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  table th + th:before {
+    content: '';
+    display: block;
+    border-left: 1px solid @border-color-split;
+    width: 0;
+    height: 15px;
+    float: left;
+    transform: translate(0, 50%);
+    -webkit-transform: translate(0, 50%);
+  }
+  th &-cell {
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  tr:hover td,
+  &-row-selected td {
+    background-color: #f6f9fe;
+  }
+  &-row-selection {
+    cursor: pointer;
+  }
+  &-row-selection .@{light-table-prefix}-column-normal .@{light-table-prefix}-cell span {
+    cursor: auto;
+  }
+  tr:hover td.@{light-table-prefix}-column-link {
+    background-color: @table-link-td-hover-bg;
+  }
+  td.@{light-table-prefix}-column-link {
+    cursor: pointer !important;
+  }
+  td.@{light-table-prefix}-column-link .@{light-table-prefix}-cell :hover {
+    color: @primary-color;
+  }
+  &-cell {
+    padding: 0px 10px;
+    margin: 4px 0;
+    word-break: break-all;
+    &-over-show {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  th&-column,
+  td&-column {
+    &-left {
+      text-align: left;
+    }
+    &-center {
+      text-align: center;
+    }
+    &-right {
+      text-align: right;
+    }
+  }
+  &-scrollBar {
+    overflow: auto;
+    background: @table-scrollBar-bg;
+    height: 8px;
+  }
+  .@{css-prefix-xbui}scrollbar-thumb {
+    background: @table-scrollbar-color;
+    &:hover {
+      background: @dark-primary-color;
+    }
+  }
+  .@{css-prefix-xbui}scrollbar-bar.is-horizontal {
+    height: 8px;
+  }
+  &-border-right {
+    border-right: 1px solid @border-color-split;
+  }
+  &-in-modal {
+    .@{light-table-prefix}-header-wrap {
+      border: 1px solid @border-color-split;
+      border-bottom: none;
+      border-radius: 5px 5px 0 0;
+    }
+    .@{light-table-prefix}-body-wrap {
+      border: 1px solid @border-color-split;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+    }
+  }
+  &-in-modal .@{light-table-prefix}-header-wrap {
+    background-color: @modal-table-thead-bg;
+  }
+  &-in-modal table th + th:before {
+    border-left: 1px solid @border-color-base;
+  }
+  &-in-modal .@{light-table-prefix}-body {
+    border-radius: 0 0 5px 5px;
+  }
+  &-with-gutter {
+    .@{light-table-prefix}-header table th:last-child {
+      border-right: none;
+    }
+  } //   &-no-height .@{light-table-prefix}-body tr:last-child td,
+  //   &-with-gutter .@{light-table-prefix}-body tr:last-child td {
+  //     border-bottom: none;
+  //   }
+  &-border {
+    .@{light-table-prefix}-header-wrap {
+      border: 1px solid @border-color-split;
+    }
+    .@{light-table-prefix}-body-wrap {
+      border: 1px solid @border-color-split;
+      border-top: none;
+    }
+  }
+  &-border.@{light-table-prefix}-with-gutter {
+    .@{light-table-prefix}-body {
+      border-bottom: 1px solid @border-color-split;
+    }
+    .@{light-table-prefix}-body tr:last-child td {
+      border-bottom: none;
+    }
+  }
+  &-border.@{light-table-prefix}-no-height {
+    .@{light-table-prefix}-body tr:last-child td {
+      border-bottom: none;
+    }
+  }
+  .light-table-spin.ant-spin-fix {
+    display: block;
+    .ant-spin-main {
+      display: block;
+      .ant-spin-text {
+        height: 100%;
+      }
+    }
+  }
+}
