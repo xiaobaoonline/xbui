@@ -8,6 +8,7 @@
   "scripts": {
     "test": "echo Test1"
   },
+  "author": "cxdmaye@hotmail.com",
   "devDependencies": {
     "lerna": "^3.14.1",
     "@vue/eslint-config-prettier": "^6.0.0",
