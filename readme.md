@@ -43,5 +43,3 @@ lerna publish
 npm config set registry http://repository.xiaobao100.com/npm/xiaobao-npm
 npm install @xb\xbui -s
 ```
-
-> > test
