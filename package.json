@@ -8,6 +8,7 @@
   "scripts": {
     "test": "echo Test1"
   },
+  "license": "MIT",
   "author": "cxdmaye@hotmail.com",
   "devDependencies": {
     "lerna": "^3.14.1",
