@@ -2,9 +2,9 @@ module.exports = {
   presets: [
     [
       '@vue/app',
-      {
-        useBuiltIns: 'false',
-      },
+      // {
+      //   useBuiltIns: 'false',
+      // },
     ],
   ],
   plugins: ['lodash'],
