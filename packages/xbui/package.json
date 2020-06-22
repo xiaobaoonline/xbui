@@ -1,6 +1,6 @@
 {
   "name": "@xb/xbui",
-  "version": "0.0.80",
+  "version": "0.1.0",
   "main": "./dist/index.js",
   "typings": "./types/index.d.ts",
   "description": "xbui base on ant-design-vue",
@@ -53,5 +53,5 @@
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
   },
-  "gitHead": "b5ae08f124d43f7ffbd7a0bdcb454bd70a046cd5"
+  "gitHead": "4f0184826f40cfac7a7c970331fc96f086fc36ca"
 }
