@@ -53,5 +53,8 @@
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
   },
-  "gitHead": "c9fc5acd8e2683c983ae5733197e3b7375cbcd84"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "b30b6b4afd5d730bbc9531f6c56d354b0d913899"
 }
