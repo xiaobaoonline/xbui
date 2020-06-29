@@ -1,6 +1,6 @@
 {
   "name": "playground",
-  "version": "0.0.86",
+  "version": "0.0.87",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
