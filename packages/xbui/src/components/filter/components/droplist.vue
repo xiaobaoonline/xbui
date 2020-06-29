@@ -28,7 +28,11 @@
               @click="handleThis(item, fi)"
             >
               <filteritem :item="item" :data="fi" :label-key="labelKey" />
-              <a-icon v-if="ifselected(item, fi)" type="check" class="xbf-selectedicon" />
+              <a-icon
+                v-if="item.mutiple&&ifselected(item, fi)"
+                type="check"
+                class="xbf-selectedicon"
+              />
             </div>
             <div v-show="!searchlist.length" class="xbf-nodataitem">暂无搜索结果</div>
           </div>
@@ -41,7 +45,11 @@
                 @click="handleThis(item, fi)"
               >
                 <filteritem :item="item" :data="fi" :label-key="labelKey" />
-                <a-icon v-if="ifselected(item, fi)" type="check" class="xbf-selectedicon" />
+                <a-icon
+                  v-if="item.mutiple&&ifselected(item, fi)"
+                  type="check"
+                  class="xbf-selectedicon"
+                />
               </div>
             </template>
             <div
@@ -51,7 +59,11 @@
               @click="handleThis(item, fi)"
             >
               <filteritem :item="item" :data="fi" :label-key="labelKey" />
-              <a-icon v-if="ifselected(item, fi)" type="check" class="xbf-selectedicon" />
+              <a-icon
+                v-if="item.mutiple&&ifselected(item, fi)"
+                type="check"
+                class="xbf-selectedicon"
+              />
             </div>
             <div v-show="!item.list.length" class="xbf-nodataitem">无结果</div>
           </div>
