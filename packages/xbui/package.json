@@ -1,5 +1,5 @@
 {
-  "name": "@xb/xbui",
+  "name": "@xiaobaoonline/xbui",
   "version": "0.0.87",
   "main": "./dist/index.js",
   "typings": "./types/index.d.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "xb",
+  "name": "xiaobaoonline",
   "private": true,
   "workspaces": [
     "packages/*"
