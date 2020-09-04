@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { XbFilter as Filter } from '@xb/xbui';
+import { XbFilter as Filter } from '@xiaobaoonline/xbui';
 import antd from 'ant-design-vue';
 import Vue from 'vue';
 

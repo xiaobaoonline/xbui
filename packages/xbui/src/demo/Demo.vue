@@ -212,7 +212,7 @@ import XbSelectTable from './../components/selecttable/select.vue';
 import XbLightTable from './../components/lighttable/table.vue';
 import XbInputNumber from './../components/inputnumber/input-number';
 import xbTableColumn from './../components/lighttable/table-column';
-import { FilterOption } from '@xb/xbui';
+import { FilterOption } from '@xiaobaoonline/xbui';
 import { studentListFilterData } from './filterdata';
 
 @Component({
@@ -459,10 +459,7 @@ export default class Demo extends Vue {
             {
               text: '当月',
               value() {
-                let lastday = moment()
-                  .set('date', 1)
-                  .add(1, 'month')
-                  .add(-1, 'day');
+                let lastday = moment().set('date', 1).add(1, 'month').add(-1, 'day');
                 // .format('YYYY-MM-DD');
                 return [
                   moment().set('date', 1),

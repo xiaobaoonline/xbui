@@ -9,7 +9,9 @@
     "type": "git",
     "url": "https://github.com/xiaobaoonline/xbui"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "test": "echo Test1"
   },
@@ -20,7 +22,5 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "jest-serializer-html": "^7.0.0"
   },
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }
