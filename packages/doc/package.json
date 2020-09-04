@@ -1,6 +1,6 @@
 {
   "name": "doc",
-  "version": "0.0.93",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "docs:dev": "vuepress dev docs",

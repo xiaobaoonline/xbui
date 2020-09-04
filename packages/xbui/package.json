@@ -1,6 +1,6 @@
 {
   "name": "@xiaobaoonline/xbui",
-  "version": "0.0.94",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "typings": "./types/index.d.ts",
   "description": "xbui base on ant-design-vue",
