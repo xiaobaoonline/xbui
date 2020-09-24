@@ -10,9 +10,9 @@ import AntD from 'ant-design-vue/dist/antd-with-locales'
 import 'ant-design-vue/dist/antd.css'
 Vue.use(AntD)
 
-import Xbui from '@xb/xbui'
+import Xbui from '@xiaobaoonline/xbui'
 import moment from 'moment'
-require('@xb/xbui/dist/style.css')
+require('@xiaobaoonline/xbui/dist/style.css')
 export default {
   components: {
     'xb-filter': Xbui.Filter,

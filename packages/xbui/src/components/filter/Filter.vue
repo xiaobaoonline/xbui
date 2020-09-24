@@ -9,17 +9,12 @@
         @click="showmore"
       >
         {{ showmoretag ? '收起更多' : '更多筛选' }}
-        <a-Icon type="caret-down" :class="{'xbui-ani-down':true,'xbui-ani-up':showmoretag}" />
+        <a-Icon type="caret-down" :class="{ 'xbui-ani-down': true, 'xbui-ani-up': showmoretag }" />
       </span>
     </div>
     <div class="xbf-filtercomp-box">
       <div v-for="item in uimodel" :key="item.key" class="xbf-filterdropitem" :name="item.key">
-        <component
-          :is="getCurrentComponent(item.type)"
-          :parentdata="uimodel"
-          :dropdata="item"
-          @datechange="changeDate"
-        >
+        <component :is="getCurrentComponent(item.type)" :parentdata="uimodel" :dropdata="item" @datechange="changeDate">
           <slot :name="item.key" />
         </component>
       </div>
@@ -141,6 +136,13 @@ export default class XbFilter extends Vue {
   filterdataChange(val: any) {
     this.handlebaseData();
   }
+
+  @Watch('first')
+  firstdataChange(val: any) {
+    this.handlebaseData(true);
+    this.setpackParam();
+  }
+
   mounted() {
     this.handleEmit = debounce(this.onFilterChange, 150);
     this.handlebaseData();
@@ -196,7 +198,7 @@ export default class XbFilter extends Vue {
         if (item.type == 'select') {
           /** 标识默认值选项是否是对象 */
           let tag = true;
-          current.forEach(fi => {
+          current.forEach((fi) => {
             if (typeof fi === 'object') {
               obj[fi[valueKey]] = true;
             } else {
@@ -273,7 +275,7 @@ export default class XbFilter extends Vue {
     return { obj, arr, datevalue, datevals };
   }
   /** 处理默认值数据 */
-  handlebaseData() {
+  handlebaseData(tag: boolean = false) {
     let filterobj: any = {};
     let localdata = this.getFilterStorge(this.filtername);
     let custumlocaldata = this.getFilterStorge(this.filtername + '_custum');
@@ -285,7 +287,7 @@ export default class XbFilter extends Vue {
       level2: [],
       level3: [],
     };
-    this.filterdata.forEach(item => {
+    this.filterdata.forEach((item) => {
       let { obj, arr, datevalue, datevals } = this.getStorageData(localdata, item);
       if (!keysarr.includes(item.key)) {
         keysarr.push(item.key);
@@ -320,7 +322,9 @@ export default class XbFilter extends Vue {
     this.uimodel = filterobj;
     this.setCustomFilter();
     this.initTag = true;
-    this.handleEmit();
+    if (!tag) {
+      this.handleEmit();
+    }
   }
   /** 处理选择某一个的情况 */
   handleThis(filter: any, item: any) {

@@ -6,7 +6,8 @@
       <a-select-option v-show="false" key="2">22222</a-select-option>
       <a-select-option key="3" @click="handleClick">33333</a-select-option>
     </a-select>
-    <xb-select-table
+    <a-button @click="changeFirst">修改first</a-button>
+    <!-- <xb-select-table
       ref="selectTable"
       :data-list="data"
       align="center"
@@ -49,7 +50,7 @@
       <template slot="footer">
         <div class="table-empty">很抱歉，这里什么都没有</div>
       </template>
-    </xb-select-table>
+    </xb-select-table> -->
 
     <xb-filter
       :filterdata="filterdata"
@@ -122,7 +123,7 @@
         <div class="table-empty">很抱歉，这里什么都没有</div>
       </template>
     </xb-light-table>-->
-    <div style="width:100px;">
+    <div style="width: 100px">
       <Xb-Input-number
         v-model="v1"
         :max="10"
@@ -142,9 +143,10 @@
         hidestep
         @on-change="changeInput"
       ></Xb-Input-number>
-      <h1>一般测试结束</h1>隐藏步数 hidestep：
+      <h1>一般测试结束</h1>
+      隐藏步数 hidestep：
       <Xb-Input-number v-model="v2" :max="10" name="he" :min="-1" :autofocus="autofocus" hidestep></Xb-Input-number>
-      测试undefined v4:{{number.v4}}
+      测试undefined v4:{{ number.v4 }}
       <Xb-Input-number
         v-model="number.v4"
         :max="10"
@@ -153,7 +155,8 @@
         :min="0"
         :required="false"
         :autofocus="autofocus"
-      ></Xb-Input-number>小数位数：
+      ></Xb-Input-number>
+      小数位数：
       <Xb-Input-number
         v-model="v3"
         name="he"
@@ -162,7 +165,8 @@
         :fixed="2"
         :max="10"
         :min="0.01"
-      ></Xb-Input-number>可为空：
+      ></Xb-Input-number>
+      可为空：
       <Xb-Input-number
         v-model="v4"
         :max="10"
@@ -170,15 +174,10 @@
         :min="-1"
         :autofocus="autofocus"
         :required="false"
-      ></Xb-Input-number>默认值：
-      <Xb-Input-number
-        v-model="v5"
-        :max="10"
-        name="he"
-        :min="-1"
-        :defaultnumber="0"
-        @input="change2"
       ></Xb-Input-number>
+
+      默认值：
+      <Xb-Input-number v-model="v5" :max="10" name="he" :min="-1" :defaultnumber="0" @input="change2"></Xb-Input-number>
       <xb-input-number
         v-model="v6"
         :max="10"
@@ -195,7 +194,7 @@
         name="he"
         :min="1"
         :required="false"
-        style="width: 170px;margin-right: 6px;"
+        style="width: 170px; margin-right: 6px"
         hidestep
         :fixed="0"
       ></Xb-Input-number>
@@ -258,6 +257,12 @@ export default class Demo extends Vue {
   v6: any = '';
   autofocus: boolean = true;
   visible: boolean = false;
+
+  changeFirst() {
+    this.first = {
+      Dateee: [{ label: '空', value: 0 }],
+    };
+  }
 
   filterdata2: any[] = [
     {

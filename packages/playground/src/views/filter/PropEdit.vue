@@ -65,7 +65,7 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
-import { FilterOption } from '@xb/xbui'
+import { FilterOption } from '@xiaobaoonline/xbui'
 import { FinterOptionConfig, getBaseFilterConfig, getFilterConfig } from './Model'
 
 @Component({})

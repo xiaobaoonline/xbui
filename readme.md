@@ -19,7 +19,7 @@ lerna bootstrap
 lerna publish
 ```
 
-5. 对外发布的库 请在名称前加 @xb，如`@xb/xbui`
+5. 对外发布的库 请在名称前加 @xb，如`@xiaobaoonline/xbui`
 
 9) 本地 commit 后运行 `lerna publish` 会`npm publish` 并 `git push`到仓库
 

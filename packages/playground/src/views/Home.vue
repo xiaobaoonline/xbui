@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { XbIcon, XbInputNumber } from '@xb/xbui'
+import { XbIcon, XbInputNumber } from '@xiaobaoonline/xbui'
 @Component({
   components: { XbIcon, XbInputNumber },
 })

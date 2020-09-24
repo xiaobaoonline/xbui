@@ -1,4 +1,4 @@
-import { FilterOption } from '@xb/xbui'
+import { FilterOption } from '@xiaobaoonline/xbui'
 
 export interface RefAttrOption {
   /** 依赖的其他prop */

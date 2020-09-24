@@ -2,7 +2,7 @@
   <div>
     <a-layout>
       <a-layout-content>
-        <FilterInfo style="height:50%;" :data="data" @clickcol="handleCol"></FilterInfo>
+        <FilterInfo style="height: 50%" :data="data" @clickcol="handleCol"></FilterInfo>
         <Footer>
           <div id="container"></div>
         </Footer>
@@ -28,7 +28,7 @@
 </template>
 <script lang="ts">
 import FilterInfo from './FilterInfo.vue'
-import { FilterOption } from '@xb/xbui'
+import { FilterOption } from '@xiaobaoonline/xbui'
 // import * as monaco from 'monaco-editor'
 import { Component, Vue } from 'vue-property-decorator'
 import PropEdit from './PropEdit.vue'

@@ -6,8 +6,8 @@
 </template>
 <script lang="ts">
 // tslint:disable-next-line:no-var-requires
-require('@xb/xbui/dist/style.css')
-import Xbui, { XbFilter, FilterOption } from '@xb/xbui'
+require('@xiaobaoonline/xbui/dist/style.css')
+import Xbui, { XbFilter, FilterOption } from '@xiaobaoonline/xbui'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 // Vue.use(Xbui)
 @Component({
