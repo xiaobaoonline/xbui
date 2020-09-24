@@ -56,6 +56,7 @@
       :filterdata="filterdata"
       :first="first"
       :freeze="freeze"
+      filtername="312321312"
       @on-filter-change="changeFilter"
       @onError="handleError"
     >
@@ -260,7 +261,7 @@ export default class Demo extends Vue {
 
   changeFirst() {
     this.first = {
-      Dateee: [{ label: '空', value: 0 }],
+      Dateee: [2],
     };
   }
 

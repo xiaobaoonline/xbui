@@ -139,6 +139,9 @@ export default class XbFilter extends Vue {
 
   @Watch('first')
   firstdataChange(val: any) {
+    if (this.filtername) {
+      this.clearFilterItem(this.filtername);
+    }
     this.handlebaseData(true);
     this.setpackParam();
   }
