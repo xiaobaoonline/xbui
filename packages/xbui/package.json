@@ -6,7 +6,8 @@
   "description": "xbui base on ant-design-vue",
   "files": [
     "dist",
-    "types"
+    "types",
+    "src"
   ],
   "license": "MIT",
   "scripts": {
