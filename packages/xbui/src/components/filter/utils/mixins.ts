@@ -6,6 +6,10 @@ export default class Meta extends Vue {
   parentdata!: any;
   @Prop({})
   dropdata!: any;
+
+  /** 外部设置时的数据设置 */
+  @Prop({})
+  outerdata!: any;
   get item() {
     return this.dropdata || {};
   }

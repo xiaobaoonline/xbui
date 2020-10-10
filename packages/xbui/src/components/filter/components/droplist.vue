@@ -28,11 +28,7 @@
               @click="handleThis(item, fi)"
             >
               <filteritem :item="item" :data="fi" :label-key="labelKey" />
-              <a-icon
-                v-if="item.mutiple&&ifselected(item, fi)"
-                type="check"
-                class="xbf-selectedicon"
-              />
+              <a-icon v-if="item.mutiple && ifselected(item, fi)" type="check" class="xbf-selectedicon" />
             </div>
             <div v-show="!searchlist.length" class="xbf-nodataitem">暂无搜索结果</div>
           </div>
@@ -45,11 +41,7 @@
                 @click="handleThis(item, fi)"
               >
                 <filteritem :item="item" :data="fi" :label-key="labelKey" />
-                <a-icon
-                  v-if="item.mutiple&&ifselected(item, fi)"
-                  type="check"
-                  class="xbf-selectedicon"
-                />
+                <a-icon v-if="item.mutiple && ifselected(item, fi)" type="check" class="xbf-selectedicon" />
               </div>
             </template>
             <div
@@ -59,11 +51,7 @@
               @click="handleThis(item, fi)"
             >
               <filteritem :item="item" :data="fi" :label-key="labelKey" />
-              <a-icon
-                v-if="item.mutiple&&ifselected(item, fi)"
-                type="check"
-                class="xbf-selectedicon"
-              />
+              <a-icon v-if="item.mutiple && ifselected(item, fi)" type="check" class="xbf-selectedicon" />
             </div>
             <div v-show="!item.list.length" class="xbf-nodataitem">无结果</div>
           </div>
@@ -79,7 +67,7 @@
           {{ item.label }}
           <a-Icon
             type="caret-down"
-            :class="{'xbui-ani-down':true,'xbui-ani-up':item.show}"
+            :class="{ 'xbui-ani-down': true, 'xbui-ani-up': item.show }"
             @click.stop="handleClick(item)"
           />
           <a-Icon v-if="item.son" type="link" class="xbf-lintdash" />
@@ -92,7 +80,7 @@
 
 <script lang="ts">
 import clickoutside from './../../../directives/clickoutside';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Watch } from 'vue-property-decorator';
 import { throttle, debounce } from './../../../utils/utils';
 import Meta from './../utils/mixins';
 import filteritem from './filteritem';
@@ -154,6 +142,38 @@ export default class Droplist extends Meta {
   get baseList() {
     return this.dropdata.baselist || [];
   }
+
+  @Watch('outerdata.tick')
+  handleOuterDatachange() {
+    let value = this.outerdata.value;
+    let target;
+    if (Object.prototype.toString.call(value) == '[object Object]') {
+      // 处理对象类型
+      if (!value[this.valueKey]) {
+        console.error('非法的默认值：', this.item.key, this.valueKey);
+      } else {
+        target = this.item.list.find((a: any) => a[this.valueKey] == value[this.valueKey]);
+        if (!target) {
+          target = value;
+        }
+      }
+    } else if (typeof value !== 'object') {
+      // 普通类型
+      target = this.item.list.find((a: any) => a[this.valueKey] == value);
+    } else {
+      console.error('非法的默认值！');
+    }
+
+    if (target) {
+      this.handleThis(this.item, target);
+      // this.$parent.selectData(this.item.key, undefined);
+    } else {
+      if (this.item.remote) {
+        console.warn('未找到要设置的value 建议设置对象');
+      }
+    }
+  }
+
   created() {
     this.handleSearch = debounce(throttle(this.onSearch, 50), 300);
   }
@@ -194,7 +214,7 @@ export default class Droplist extends Meta {
       this.searchlist = [...item.list];
       this.searchtag = true;
       // 处理本地搜索
-      this.searchlist = this.searchlist.filter(itme => {
+      this.searchlist = this.searchlist.filter((itme) => {
         return itme[labelKey] !== null && itme[labelKey] !== undefined && itme[labelKey].indexOf(search) > -1;
       });
     } else {

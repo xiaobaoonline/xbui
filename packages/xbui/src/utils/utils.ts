@@ -1,7 +1,7 @@
 export function getIndex(arrs: any, item: any, valueKey: any) {
   if (typeof item === 'object') {
-    let ids = arrs.map((item: any) => item[valueKey]);
-    return ids.indexOf(item[valueKey]);
+    let ids = arrs.map((item: any) => item[valueKey] + '');
+    return ids.indexOf(item[valueKey] + '');
   } else {
     return arrs.indexOf(item);
   }

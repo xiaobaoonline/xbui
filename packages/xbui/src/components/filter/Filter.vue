@@ -14,7 +14,13 @@
     </div>
     <div class="xbf-filtercomp-box">
       <div v-for="item in uimodel" :key="item.key" class="xbf-filterdropitem" :name="item.key">
-        <component :is="getCurrentComponent(item.type)" :parentdata="uimodel" :dropdata="item" @datechange="changeDate">
+        <component
+          :is="getCurrentComponent(item.type)"
+          :parentdata="uimodel"
+          :dropdata="item"
+          :outerdata="outselecteddata[item.key]"
+          @datechange="changeDate"
+        >
           <slot :name="item.key" />
         </component>
       </div>
@@ -39,6 +45,8 @@ import droplist from './components/droplist.vue';
 import dropdaterange from './components/dropdaterange.vue';
 import numberrange from './components/numberrange.vue';
 import selectrange from './components/selectrange.vue';
+
+let changecount: number = 1;
 
 import { getIndex, setItem, getItem, clearItem, debounce } from '../../utils/utils';
 import { FilterOption } from './../../model/filter';
@@ -117,6 +125,9 @@ export default class XbFilter extends Vue {
   @Prop({ default: '', type: String })
   filtername!: string;
 
+  /** 外部的勾选项 */
+  outselecteddata: any = {};
+
   search: string = '';
   showcustom: boolean = false;
   selectedLen: number = 0;
@@ -137,18 +148,29 @@ export default class XbFilter extends Vue {
     this.handlebaseData();
   }
 
-  @Watch('first')
-  firstdataChange(val: any) {
-    // this.resetSelectedFilter();
-  }
+  // @Watch('first')
+  // firstdataChange(val: any) {
+  //   // this.resetSelectedFilter();
+  // }
 
-  /** 提供给外部做刷新用的 */
-  resetSelectedFilter() {
-    if (this.filtername) {
-      this.clearFilterItem(this.filtername);
-    }
-    this.handlebaseData(true);
-    this.setpackParam();
+  // /** 提供给外部做刷新用的 */
+  // resetSelectedFilter() {
+  //   this.$nextTick(() => {
+  //     if (this.filtername) {
+  //       this.clearFilterItem(this.filtername);
+  //     }
+  //     this.handlebaseData(true);
+  //     this.setpackParam();
+  //   });
+  // }
+
+  /** 外部设置某一项的值 */
+  selectData(key: string, val: any) {
+    // this.outselecteddata[key] = val;
+    this.$set(this.outselecteddata, key, {
+      value: val,
+      tick: changecount++,
+    });
   }
 
   mounted() {

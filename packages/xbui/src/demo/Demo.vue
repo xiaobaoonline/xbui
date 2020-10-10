@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <input v-model="v1" type="text" @change="Log('change')" @input="Log('input')" />
+    <!-- <input v-model="v1" type="text" @change="Log('change')" @input="Log('input')" />
     <a-select>
       <a-select-option v-if="false" key="1">11111</a-select-option>
       <a-select-option v-show="false" key="2">22222</a-select-option>
       <a-select-option key="3" @click="handleClick">33333</a-select-option>
-    </a-select>
+    </a-select> -->
     <a-button @click="changeFirst">修改first</a-button>
+    <a-button @click="changeFirst2">修改另一个</a-button>
     <!-- <xb-select-table
       ref="selectTable"
       :data-list="data"
@@ -59,6 +60,7 @@
       filtername="312321312"
       @on-filter-change="changeFilter"
       @onError="handleError"
+      ref="testfilter"
     >
       <div slot="head">Head</div>
       <template slot="Dateee" slot-scope="data">{{ data.label }}+{{ data.value }}</template>
@@ -124,7 +126,7 @@
         <div class="table-empty">很抱歉，这里什么都没有</div>
       </template>
     </xb-light-table>-->
-    <div style="width: 100px">
+    <div style="width: 100px; display: none">
       <Xb-Input-number
         v-model="v1"
         :max="10"
@@ -228,6 +230,9 @@ import { studentListFilterData } from './filterdata';
   },
 })
 export default class Demo extends Vue {
+  $refs!: {
+    testfilter: any;
+  };
   value: any[] = [];
   time2: string = '';
   icontype: string = 'tag-class';
@@ -260,9 +265,18 @@ export default class Demo extends Vue {
   visible: boolean = false;
 
   changeFirst() {
-    this.first = {
-      Dateee: [2],
-    };
+    // this.first = {
+    //   mode: ['2'],
+    // };
+
+    this.$refs.testfilter.selectData('mode', 2);
+  }
+  changeFirst2() {
+    // this.first = {
+    //   mode: ['2'],
+    // };
+
+    this.$refs.testfilter.selectData('educationConsultantHrdocIds', { id: '51477', classificationName: '嘎嘎嘎' });
   }
 
   filterdata2: any[] = [
@@ -360,24 +374,11 @@ export default class Demo extends Vue {
   }
   created() {
     this.getFilterData();
-    setTimeout(() => {
-      this.filterdata.splice(3, 0, {
-        label: '学管师',
-        key: 'educationConsultantHrdocIds',
-        type: 'select',
-        filter: true,
-        remote: true,
-        priority: 1,
-        remoteUrl: '/api2/Org/GetEducationConsultantHrdocList',
-        labelKey: 'educationConsultantHrdocName',
-        valueKey: 'educationConsultantHrdocId',
-        mutiple: true,
-        father: '',
-        son: '',
-        list: [],
-        baselist: [{ educationConsultantHrdocName: '空', educationConsultantHrdocId: 0 }],
-      });
-    }, 3000);
+    // setTimeout(() => {
+    //   this.filterdata.splice(3, 0, {
+
+    //   });
+    // }, 3000);
     this.fetchData();
   }
   handleClick() {
@@ -784,7 +785,7 @@ export default class Demo extends Vue {
     // var data = await axios.get(url);
     // this.filterdata = data.data.data;
 
-    this.filterdata = localdata;
+    // this.filterdata = localdata;
     // this.filterdata = this.filterdata.concat(localdata);
     // this.filterdata = this.filterdata.concat(localdata);
     // this.filterdata = this.filterdata.concat(localdata);
