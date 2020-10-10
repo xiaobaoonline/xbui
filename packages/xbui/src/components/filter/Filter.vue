@@ -139,6 +139,11 @@ export default class XbFilter extends Vue {
 
   @Watch('first')
   firstdataChange(val: any) {
+    // this.resetSelectedFilter();
+  }
+
+  /** 提供给外部做刷新用的 */
+  resetSelectedFilter() {
     if (this.filtername) {
       this.clearFilterItem(this.filtername);
     }

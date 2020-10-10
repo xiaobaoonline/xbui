@@ -26,6 +26,10 @@ export declare class XbFilter extends XBuiComponent {
    * @param tag  是否发送回调
    */
   clearFilter(tag: boolean): void;
+  /**
+   * 外部重新设置默认值后的刷新调用
+   */
+  resetSelectedFilter(): void;
 }
 
 /** 筛选组件默认选项模型 */
