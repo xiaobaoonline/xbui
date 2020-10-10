@@ -7,14 +7,13 @@ export const studentListFilterData: any[] = [
     remote: true,
     priority: 1,
     apitype: 'get',
-    remoteUrl: 'http://mock.schoolpal.cn/mock/108/filterlist',
-    labelKey: 'classificationName',
-    valueKey: 'id',
+    remoteUrl: 'http://mock.schoolpal.cn/mock/108/filterlist2',
+    labelKey: '',
+    valueKey: '',
     mutiple: true,
     father: '',
     son: '',
     list: [],
-    baselist: [{ classificationName: '空', id: 0 }],
   },
 
   // 报读校区

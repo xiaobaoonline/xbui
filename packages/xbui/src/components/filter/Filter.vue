@@ -279,7 +279,11 @@ export default class XbFilter extends Vue {
       if (item.type == 'select' && Array.isArray(localdata[item.key])) {
         obj = {};
         localdata[item.key].map((fi: any) => {
-          obj[fi[valueKey]] = true;
+          if (typeof fi == 'object') {
+            obj[fi[valueKey]] = true;
+          } else {
+            obj[fi] = true;
+          }
         });
         arr = localdata[item.key];
         if (arr.length) {
